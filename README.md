@@ -16,12 +16,14 @@ are implemented by this shared program.
 ## Reproducible Build
 
 ```bash
-cargo build-sbf --arch v0 --manifest-path programs/solx_launchpad/Cargo.toml
+cargo build-sbf --arch v0 --manifest-path Cargo.toml
 solana-verify get-executable-hash target/deploy/solx_launchpad.so
 ```
 
 The source commit used for a deployment is submitted to the Solana verified
-build registry with `solana-verify verify-from-repo`.
+build registry with `solana-verify verify-from-repo`. The repository-level
+manifest is intentional: it gives local and remote verifiers the same build
+root while keeping the program modules under `programs/solx_launchpad`.
 
 ## Security
 

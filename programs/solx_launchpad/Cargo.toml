@@ -2,8 +2,8 @@
 name = "solx-launchpad"
 version = "0.1.0"
 description = "SOLX mobile-first Solana launchpad program"
-edition.workspace = true
-rust-version.workspace = true
+edition = "2021"
+rust-version = "1.89.0"
 
 [lib]
 crate-type = ["cdylib", "lib"]
