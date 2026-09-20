@@ -1,0 +1,9 @@
+target/
+.anchor/
+.env
+.env.*
+*.json
+*.key
+*.pem
+*.tsbuildinfo
+.DS_Store

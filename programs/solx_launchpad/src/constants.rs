@@ -1,0 +1,14 @@
+pub const CONFIG_SEED: &[u8] = b"config";
+pub const MARKET_SEED: &[u8] = b"market";
+pub const BASE_VAULT_SEED: &[u8] = b"base-vault";
+pub const QUOTE_VAULT_SEED: &[u8] = b"quote-vault";
+pub const BURN_VAULT_SEED: &[u8] = b"burn-vault";
+pub const REWARD_VAULT_SEED: &[u8] = b"reward-vault";
+pub const SOL_VAULT_SEED: &[u8] = b"sol-vault";
+pub const SOL_BURN_VAULT_SEED: &[u8] = b"sol-burn-vault";
+pub const SOL_REWARD_VAULT_SEED: &[u8] = b"sol-reward-vault";
+pub const BASIS_POINTS: u16 = 10_000;
+pub const DEFAULT_CURVE_ALLOCATION_BPS: u16 = 6_000;
+pub const DEFAULT_LIQUIDITY_ALLOCATION_BPS: u16 = 2_000;
+pub const DEFAULT_ECOSYSTEM_ALLOCATION_BPS: u16 = 2_000;
+pub const MAX_MECHANISM_FEE_BPS: u16 = 500;

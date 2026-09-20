@@ -1,0 +1,19 @@
+[toolchain]
+anchor_version = "1.2.0"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+solx_launchpad = "2AVaQ45R5u1DE4JyvtQ76fUDm72CLSXMRfBQ8d3TPHjA"
+
+[programs.devnet]
+solx_launchpad = "2AVaQ45R5u1DE4JyvtQ76fUDm72CLSXMRfBQ8d3TPHjA"
+
+[provider]
+cluster = "Devnet"
+wallet = "~/.config/solana/id.json"
+
+[workspace]
+members = ["programs/*"]
