@@ -49,6 +49,18 @@ pub struct LaunchMarket {
     pub sol_vault_bump: u8,
 }
 
+#[account]
+#[derive(InitSpace)]
+pub struct PlatformVerification {
+    pub mint: Pubkey,
+    pub reviewer: Pubkey,
+    pub verified: bool,
+    pub reason_hash: [u8; 32],
+    pub created_at: i64,
+    pub updated_at: i64,
+    pub bump: u8,
+}
+
 #[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, InitSpace, PartialEq, Eq)]
 pub enum QuoteMode {
     Sol,

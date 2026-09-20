@@ -61,3 +61,12 @@ pub struct MigrationAssetsReleased {
     pub quote_amount: u64,
     pub quote_mode: QuoteMode,
 }
+
+#[event]
+pub struct PlatformVerificationUpdated {
+    pub mint: Pubkey,
+    pub reviewer: Pubkey,
+    pub verified: bool,
+    pub reason_hash: [u8; 32],
+    pub updated_at: i64,
+}

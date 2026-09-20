@@ -1,5 +1,6 @@
 pub const CONFIG_SEED: &[u8] = b"config";
 pub const MARKET_SEED: &[u8] = b"market";
+pub const PLATFORM_VERIFICATION_SEED: &[u8] = b"platform-verification";
 pub const BASE_VAULT_SEED: &[u8] = b"base-vault";
 pub const QUOTE_VAULT_SEED: &[u8] = b"quote-vault";
 pub const BURN_VAULT_SEED: &[u8] = b"burn-vault";

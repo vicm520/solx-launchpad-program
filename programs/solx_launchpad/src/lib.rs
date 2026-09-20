@@ -81,4 +81,28 @@ pub mod solx_launchpad {
     pub fn release_migration_assets_solx(ctx: Context<ReleaseMigrationAssetsSolx>) -> Result<()> {
         instructions::migration::handle_release_migration_assets_solx(ctx)
     }
+
+    pub fn create_platform_verification(
+        ctx: Context<CreatePlatformVerification>,
+        verified: bool,
+        reason_hash: [u8; 32],
+    ) -> Result<()> {
+        instructions::platform_verification::handle_create_platform_verification(
+            ctx,
+            verified,
+            reason_hash,
+        )
+    }
+
+    pub fn update_platform_verification(
+        ctx: Context<UpdatePlatformVerification>,
+        verified: bool,
+        reason_hash: [u8; 32],
+    ) -> Result<()> {
+        instructions::platform_verification::handle_update_platform_verification(
+            ctx,
+            verified,
+            reason_hash,
+        )
+    }
 }

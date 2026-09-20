@@ -12,7 +12,7 @@ use crate::{
 pub struct ReleaseMigrationAssetsSol<'info> {
     pub authority: Signer<'info>,
     #[account(seeds = [CONFIG_SEED], bump = config.bump)]
-    pub config: Account<'info, GlobalConfig>,
+    pub config: Box<Account<'info, GlobalConfig>>,
     #[account(
         mut,
         seeds = [MARKET_SEED, base_mint.key().as_ref()],
@@ -20,12 +20,12 @@ pub struct ReleaseMigrationAssetsSol<'info> {
         has_one = config,
         has_one = base_vault,
     )]
-    pub market: Account<'info, LaunchMarket>,
-    pub base_mint: Account<'info, Mint>,
+    pub market: Box<Account<'info, LaunchMarket>>,
+    pub base_mint: Box<Account<'info, Mint>>,
     #[account(mut, seeds = [BASE_VAULT_SEED, base_mint.key().as_ref()], bump)]
-    pub base_vault: Account<'info, TokenAccount>,
+    pub base_vault: Box<Account<'info, TokenAccount>>,
     #[account(mut, token::mint = base_mint, token::authority = authority)]
-    pub authority_base_token: Account<'info, TokenAccount>,
+    pub authority_base_token: Box<Account<'info, TokenAccount>>,
     /// CHECK: System-owned PDA used by the market to hold SOL reserves.
     #[account(mut, seeds = [SOL_VAULT_SEED, base_mint.key().as_ref()], bump = market.sol_vault_bump)]
     pub sol_vault: UncheckedAccount<'info>,
@@ -37,7 +37,7 @@ pub struct ReleaseMigrationAssetsSol<'info> {
 pub struct ReleaseMigrationAssetsSolx<'info> {
     pub authority: Signer<'info>,
     #[account(seeds = [CONFIG_SEED], bump = config.bump)]
-    pub config: Account<'info, GlobalConfig>,
+    pub config: Box<Account<'info, GlobalConfig>>,
     #[account(
         mut,
         seeds = [MARKET_SEED, base_mint.key().as_ref()],
@@ -46,18 +46,18 @@ pub struct ReleaseMigrationAssetsSolx<'info> {
         has_one = base_vault,
         has_one = quote_vault,
     )]
-    pub market: Account<'info, LaunchMarket>,
-    pub base_mint: Account<'info, Mint>,
+    pub market: Box<Account<'info, LaunchMarket>>,
+    pub base_mint: Box<Account<'info, Mint>>,
     #[account(mut, seeds = [BASE_VAULT_SEED, base_mint.key().as_ref()], bump)]
-    pub base_vault: Account<'info, TokenAccount>,
+    pub base_vault: Box<Account<'info, TokenAccount>>,
     #[account(mut, token::mint = base_mint, token::authority = authority)]
-    pub authority_base_token: Account<'info, TokenAccount>,
+    pub authority_base_token: Box<Account<'info, TokenAccount>>,
     #[account(address = config.solx_mint @ LaunchpadError::InvalidTokenAccount)]
-    pub quote_mint: Account<'info, Mint>,
+    pub quote_mint: Box<Account<'info, Mint>>,
     #[account(mut, seeds = [QUOTE_VAULT_SEED, base_mint.key().as_ref()], bump)]
-    pub quote_vault: Account<'info, TokenAccount>,
+    pub quote_vault: Box<Account<'info, TokenAccount>>,
     #[account(mut, token::mint = quote_mint, token::authority = authority)]
-    pub authority_quote_token: Account<'info, TokenAccount>,
+    pub authority_quote_token: Box<Account<'info, TokenAccount>>,
     pub token_program: Program<'info, Token>,
 }
 

@@ -113,7 +113,10 @@ pub fn handle_create_market(ctx: Context<CreateMarket>, args: CreateMarketArgs) 
         .checked_add(args.liquidity_allocation_bps)
         .and_then(|value| value.checked_add(args.ecosystem_allocation_bps))
         .ok_or(LaunchpadError::MathOverflow)?;
-    require!(allocation_bps_total == 10_000, LaunchpadError::InvalidAllocationRatio);
+    require!(
+        allocation_bps_total == 10_000,
+        LaunchpadError::InvalidAllocationRatio
+    );
     require!(
         (4_000..=9_000).contains(&args.curve_allocation_bps)
             && (1_000..=5_000).contains(&args.liquidity_allocation_bps)
